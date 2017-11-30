@@ -11,8 +11,11 @@ alias tp='cd ~/projects/trajectplanner'
 
 # General
 alias composer="php /usr/local/bin/composer.phar"
-alias dc="docker-compose"
-alias dcdu="docker-compose down && docker-compose up"
+
+# Docker
+alias dc="docker-compose"                             # For ease of use
+alias dcdu="docker-compose down && docker-compose up" # For easy reloading of docker containers through docker-compose.yml
+dbash () { docker exec -it "$@" /bin/bash }           # 'ssh' into passed docker container id or name
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
