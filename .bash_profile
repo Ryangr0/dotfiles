@@ -12,9 +12,14 @@ alias tp='cd ~/projects/trajectplanner'
 # General
 alias composer="php /usr/local/bin/composer.phar"
 
+# MySQL
+#mysqldump -h "$1" -u dev -pbc2*2zz sbbhks > ' . $file
+
 # Docker
+alias dps="docker ps"                                 # For ease of use
 alias dc="docker-compose"                             # For ease of use
 alias dcdu="docker-compose down && docker-compose up" # For easy reloading of docker containers through docker-compose.yml
+
 dbash () { docker exec -it "$@" /bin/bash }           # 'ssh' into passed docker container id or name
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
@@ -22,7 +27,7 @@ alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
-#cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
+cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
@@ -34,7 +39,6 @@ alias edit='subl'                           # edit:         Opens any file in su
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
-alias which='type -all'                     # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias show_options='shopt'                  # Show_options: display bash options settings
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
