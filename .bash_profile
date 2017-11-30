@@ -12,6 +12,7 @@ alias tp='cd ~/projects/trajectplanner'
 # General
 alias composer="php /usr/local/bin/composer.phar"
 alias dc="docker-compose"
+alias dcdu="docker-compose down && docker-compose up"
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
