@@ -3,7 +3,7 @@ export EDITOR=/usr/bin/nano
 
 # Aliases
 alias p='cd ~/projects'
-
+alias pp='cd ~/projects/personal'
 # Job specific
 
 # Trajectplanner
@@ -11,9 +11,6 @@ alias tp='cd ~/projects/trajectplanner'
 
 # General
 alias composer="php /usr/local/bin/composer.phar"
-
-# MySQL
-#mysqldump -h "$1" -u dev -pbc2*2zz sbbhks > ' . $file
 
 # Docker
 alias dps="docker ps"                                 # For ease of use
