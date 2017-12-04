@@ -9,6 +9,9 @@ alias pp='cd ~/projects/personal'
 # Trajectplanner
 alias tp='cd ~/projects/trajectplanner'
 
+# Onderwijs Online
+alias oo='cd ~/projects/onderwijsonline'
+
 # General
 alias composer="php /usr/local/bin/composer.phar"
 
