@@ -1,0 +1,12 @@
+[core]
+	autocrlf = input
+[user]
+	email = R.Grippeling@hotmail.com
+	name = Ryan Grippeling
+[alias]
+    udm = !git checkout develop && git pull && git checkout master && git pull
+    umd = !git checkout master && git pull && git checkout develop && git pull
+    uc = !git checkout develop && git pull && git checkout master && git pull && git checkout @{-2}
+    pp = !git pull && git push
+    hist = !git log --pretty=format:'%h %Cred%d%Creset %Cblue%ad%Creset %an %Cgreen%s%Creset' -n 10 --date=format:'%d-%m %H:%M' -n 10
+    histsimple = !git log --oneline -n 10
