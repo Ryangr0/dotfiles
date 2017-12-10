@@ -19,6 +19,7 @@ alias composer="php /usr/local/bin/composer.phar"
 alias dps="docker ps"                                 # For ease of use
 alias dc="docker-compose"                             # For ease of use
 alias dcdu="docker-compose down && docker-compose up" # For easy reloading of docker containers through docker-compose.yml
+alias dni="docker network inspect"                    # For ease of use
 
 dbash () { docker exec -it "$@" /bin/bash }           # 'ssh' into passed docker container id or name
 
@@ -53,7 +54,7 @@ alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/usr/lib/google-cloud-sdk/path.bash.inc' ]; then source '/usr/lib/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/usr/lib/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/lib/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/usr/lib/google-cloud-sdk/completion.bash.inc' ]; then source '/usr/lib/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '/usr/lib/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/lib/google-cloud-sdk/completion.zsh.inc'; fi
