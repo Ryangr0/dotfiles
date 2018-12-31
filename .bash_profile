@@ -1,13 +1,13 @@
 # Exports
 export EDITOR=/usr/bin/nano
 
-# Aliases
+# General
 alias p='cd ~/projects'
 alias pp='cd ~/projects/personal'
 alias n='nano'
 alias op='open -a Phpstorm'
-# Job specific
 
+# Job specific
 # Trajectplanner
 alias tp='cd ~/projects/trajectplanner'
 
@@ -17,26 +17,16 @@ alias oo='cd ~/projects/onderwijsonline'
 # Command Runner
 alias cr='cd ~/projects/command-runner'
 
-# General
-alias composer="php /usr/local/bin/composer"
-
 # Docker
-alias dps="docker ps"                                 # For ease of use
-alias dc="docker-compose"                             # For ease of use
+alias dps="docker ps"                                 # List running docker containers
+alias dc="docker-compose"                             # Faster than typing it all lol
 alias dcdu="docker-compose down && docker-compose up" # For easy reloading of docker containers through docker-compose.yml
-alias dni="docker network inspect"                    # For ease of use
-alias dnps="docker network ps"
+alias dnps="docker network ps"						  # List all running docker networks
+alias dni="docker network inspect"                    # Inspect a docker network
+alias drun="docker run --rm"						  # run the docker image that was passed
 
-# Docker test pipeline with image $1 for project $2
-dtp() {
-    docker run -it --volume=/Users/ryan/projects/$2:/$2 --workdir="/$2" --memory=2048m $1 /bin/bash
-}
-dnc () { docker network inspect $1 }
-dbash () { docker exec -it "$@" /bin/bash }           # 'ssh' into passed docker container id or name
-
-dcomposer () {
-    docker run --rm -v $(pwd):/app composer/composer:php5 $@
-}
+dbash () { docker exec -it "$@" /bin/bash }  # 'ssh' into passed docker container id or name
+drun () {  $@ }				 
 
 # Kubernetes
 alias k="kubectl"
@@ -48,8 +38,6 @@ alias kt="kubectl -n test"
 ke() {
     kubectl -n production  exec -it $@
 }
-
-
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
