@@ -4,6 +4,8 @@ export EDITOR=/usr/bin/nano
 # Aliases
 alias p='cd ~/projects'
 alias pp='cd ~/projects/personal'
+alias n='nano'
+alias op='open -a Phpstorm'
 # Job specific
 
 # Trajectplanner
@@ -12,16 +14,42 @@ alias tp='cd ~/projects/trajectplanner'
 # Onderwijs Online
 alias oo='cd ~/projects/onderwijsonline'
 
+# Command Runner
+alias cr='cd ~/projects/command-runner'
+
 # General
-alias composer="php /usr/local/bin/composer.phar"
+alias composer="php /usr/local/bin/composer"
 
 # Docker
 alias dps="docker ps"                                 # For ease of use
 alias dc="docker-compose"                             # For ease of use
 alias dcdu="docker-compose down && docker-compose up" # For easy reloading of docker containers through docker-compose.yml
 alias dni="docker network inspect"                    # For ease of use
+alias dnps="docker network ps"
 
+# Docker test pipeline with image $1 for project $2
+dtp() {
+    docker run -it --volume=/Users/ryan/projects/$2:/$2 --workdir="/$2" --memory=2048m $1 /bin/bash
+}
+dnc () { docker network inspect $1 }
 dbash () { docker exec -it "$@" /bin/bash }           # 'ssh' into passed docker container id or name
+
+dcomposer () {
+    docker run --rm -v $(pwd):/app composer/composer:php5 $@
+}
+
+# Kubernetes
+alias k="kubectl"
+alias kp="kubectl -n production"
+alias ks="kubectl -n staging"
+alias kt="kubectl -n test"
+
+# Kubernetes enter pod $1
+ke() {
+    kubectl -n production  exec -it $@
+}
+
+
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
@@ -48,6 +76,9 @@ mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and ju
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+
+export PATH=$PATH:$HOME/.composer/vendor/bin
+export PATH=$PATH:/Users/ryan/Library/Python/2.7/bin
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
