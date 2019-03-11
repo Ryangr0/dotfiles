@@ -5,11 +5,13 @@ export EDITOR=/usr/bin/nano
 alias p='cd ~/projects'
 alias pp='cd ~/projects/personal'
 alias n='nano'
-alias op='open -a Phpstorm'
+alias op='open -a PhpStorm 2019.1 EAP.app'
 
 # Job specific
 # Trajectplanner
 alias tp='cd ~/projects/trajectplanner'
+alias kptp='kubectl -n production exec -it $(kubectl -n production get pods | grep "trajectplanner[a-zA-Z0-9\-]*" -o -m1) bash'
+alias kstp='kubectl -n staging exec -it $(kubectl -n staging get pods | grep "trajectplanner[a-zA-Z0-9\-]*" -o -m1) bash'
 
 # Onderwijs Online
 alias oo='cd ~/projects/onderwijsonline'
@@ -24,9 +26,6 @@ alias dcdu="docker-compose down && docker-compose up" # For easy reloading of do
 alias dnps="docker network ps"						  # List all running docker networks
 alias dni="docker network inspect"                    # Inspect a docker network
 alias drun="docker run --rm"						  # run the docker image that was passed
-
-dbash () { docker exec -it "$@" /bin/bash }  # 'ssh' into passed docker container id or name
-drun () {  $@ }				 
 
 # Kubernetes
 alias k="kubectl"
