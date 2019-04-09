@@ -5,7 +5,7 @@ export EDITOR=/usr/bin/nano
 alias p='cd ~/projects'
 alias pp='cd ~/projects/personal'
 alias n='nano'
-alias op='open -a PhpStorm 2019.1 EAP.app'
+alias op='open -a PhpStorm.app'
 
 # Job specific
 # Trajectplanner
