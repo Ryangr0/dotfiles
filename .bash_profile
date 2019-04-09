@@ -22,21 +22,9 @@ alias cr='cd ~/projects/command-runner'
 # Docker
 alias dps="docker ps"                                 # List running docker containers
 alias dc="docker-compose"                             # Faster than typing it all lol
-alias dcdu="docker-compose down && docker-compose up" # For easy reloading of docker containers through docker-compose.yml
-alias dnps="docker network ps"						  # List all running docker networks
-alias dni="docker network inspect"                    # Inspect a docker network
-alias drun="docker run --rm"						  # run the docker image that was passed
 
 # Kubernetes
 alias k="kubectl"
-alias kp="kubectl -n production"
-alias ks="kubectl -n staging"
-alias kt="kubectl -n test"
-
-# Kubernetes enter pod $1
-ke() {
-    kubectl -n production  exec -it $@
-}
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
