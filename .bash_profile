@@ -52,6 +52,11 @@ trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the 
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 
+
+weather() {
+    curl -s wttr.in/ | sed -n "1,7p"
+}
+
 export PATH=$PATH:$HOME/.composer/vendor/bin
 export PATH=$PATH:/Users/ryan/Library/Python/2.7/bin
 
