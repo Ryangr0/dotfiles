@@ -12,6 +12,12 @@ alias op='open -a PhpStorm.app'
 alias tp='cd ~/projects/trajectplanner'
 alias kptp='kubectl -n production exec -it $(kubectl -n production get pods | grep "trajectplanner[a-zA-Z0-9\-]*" -o -m1) bash'
 alias kstp='kubectl -n staging exec -it $(kubectl -n staging get pods | grep "trajectplanner[a-zA-Z0-9\-]*" -o -m1) bash'
+fclone() { git clone git@gitlab.com-fringe:fringe-company/$@.git  }
+kse() {
+  POD=$(kubectl -n staging get pods | grep "$1[a-zA-Z0-9\-]*" -o -m1)
+  shift
+  kubectl -n staging exec -it $POD $@
+}
 
 # Onderwijs Online
 alias oo='cd ~/projects/onderwijsonline'
@@ -25,6 +31,13 @@ alias dc="docker-compose"                             # Faster than typing it al
 
 # Kubernetes
 alias k="kubectl"
+alias ks="kubectl -n staging"
+alias kp="kubectl -n production"
+
+ksp() { echo $@; kubectl -n staging get pods | grep "$(printf "$@" [a-zA-Z0-9\-]*)" -o -m1 }
+
+
+ksl() { kubectl -n staging logs $(kubectl -n staging get pods | grep "$@[a-zA-Z0-9\-]*" -o -m1) }
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
